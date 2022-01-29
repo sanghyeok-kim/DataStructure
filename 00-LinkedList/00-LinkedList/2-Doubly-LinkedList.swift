@@ -1,0 +1,209 @@
+import Foundation
+
+//Equatable을 따르는 <T>자료형의 data를 가진 Node class
+class Node<T: Equatable> {
+    var data: T
+    var next: Node<T>?
+    var prev: Node<T>?
+    
+    init(data: T, next: Node<T>? = nil, prev: Node<T>? = nil) {
+        self.data = data
+        self.next = next
+        self.prev = prev
+    }
+}
+
+//Equatable을 따르는 <T>자료형의 data를 가진 Node를 연결하는 DLL class
+class DoublyLinkedList<T: Equatable> {
+    var head: Node<T>?
+    var tail: Node<T>?
+    
+    func isEmpty() -> Bool {
+        return (head == nil && tail == nil)
+    }
+    
+    func searchNodeFromHead(data: T) -> Node<T>? {
+        if isEmpty() {
+            print("Empty List")
+            return nil
+        }
+        
+        var current = head
+        while(current != nil) {
+            if current?.data == data {
+                return current
+            }
+            current = current?.next
+        }
+        print("Cannot Find Node")
+        return nil
+    }
+    
+    func searchNodeFromTail(data: T) -> Node<T>? {
+        if isEmpty() {
+            print("Empty List")
+            return nil
+        }
+        
+        var current = tail
+        while(current != nil) {
+            if current?.data == data {
+                return current
+            }
+            current = current?.prev
+        }
+        print("Cannot Find Node")
+        return nil
+    }
+    
+    func insertAtLast(newNode: Node<T>) {
+        if isEmpty() {
+            head = newNode
+            tail = newNode
+        }
+        else {
+            let exTail = tail
+            
+            tail = newNode
+            tail?.prev = exTail
+            exTail?.next = newNode
+        }
+    }
+    
+    func insertAtFirst(newNode: Node<T>) {
+        if isEmpty() {
+            head = newNode
+            tail = newNode
+        }
+        else {
+            let exHead = head
+            
+            head = newNode
+            head?.next = exHead
+            exHead?.prev = newNode
+        }
+    }
+    
+    func insertAfter(targetNodeData: T, newNode: Node<T>) {
+        guard let targetNode = searchNodeFromHead(data: targetNodeData) else { return }
+        
+        if targetNode.next == nil {
+            insertAtLast(newNode: newNode)
+        }
+        else {
+            //newNode의 rlink 연결
+            targetNode.next?.prev = newNode
+            newNode.next = targetNode.next
+            
+            //newNode의 llink 연결
+            targetNode.next = newNode
+            newNode.prev = targetNode
+        }
+        
+    }
+    
+    func insertBefore(targetNodeData: T, newNode: Node<T>) {
+        guard let targetNode = searchNodeFromHead(data: targetNodeData) else { return }
+        
+        if targetNode.prev == nil {
+            insertAtFirst(newNode: newNode)
+        }
+        else {
+            //newNode의 llink 연결
+            targetNode.prev?.next = newNode
+            newNode.prev = targetNode.prev
+            
+            //newNode의 rlink 연결
+            newNode.next = targetNode
+            targetNode.prev = newNode
+        }
+    }
+    
+    func deleteFirstNode() {
+        if isEmpty() {
+            print("Cannot Delete Node - Empty List")
+        }
+        else if (head?.next == nil && tail?.next == nil ) { //Node가 1개
+            head = nil
+            tail = nil
+        }
+        else { //Node가 2개 이상
+            head = head?.next
+    
+            //새로운 head의 llink(기존 head) 끊기
+            head?.prev?.next = nil
+            head?.prev = nil
+        }
+    }
+    
+    func deleteLastNode() {
+        if isEmpty() {
+            print("Cannot Delete Node - Empty List")
+        }
+        else if (head?.next == nil && tail?.next == nil ) { //Node가 1개
+            head = nil
+            tail = nil
+        }
+        else { //Node가 2개 이상
+            tail = tail?.prev
+        
+            //새로운 tail의 rlink(기존 tail) 끊기
+            tail?.next?.prev = nil
+            tail?.next = nil
+        }
+    }
+    
+    func deleteNode(targetNodeData: T) {
+        if isEmpty() {
+            print("Cannot Delete Node - Empty List")
+            return
+        }
+        
+        guard let targetNode = searchNodeFromHead(data: targetNodeData) else
+        {
+            return
+        }
+        
+        if targetNode.prev == nil { //target이 head일 때
+            deleteFirstNode()
+        }
+        else if targetNode.next == nil { //target이 tail일 때
+            deleteLastNode()
+        }
+        else { //target이 head도 아니고 tail도 아니다 -> 2개의 Node 사이에 있다
+            targetNode.prev?.next = targetNode.next
+            targetNode.next?.prev = targetNode.prev
+        }
+    }
+    
+    func swapNode(leftNode: Node<T>, rightNode: Node<T>) { //인접한 두 노드 간에만 사용 가능
+        leftNode.next = rightNode.next
+        rightNode.prev = rightNode.prev?.prev
+        
+        rightNode.next = leftNode
+        rightNode.prev?.next = rightNode
+        
+        leftNode.prev = rightNode
+        leftNode.next?.prev = leftNode
+    }
+    
+    func showAll() {
+        if isEmpty() {
+            print("(head) |Empty List| (tail)")
+            return
+        }
+        
+        print("(head) ", terminator: "")
+        var current = head
+        while(current != nil) {
+            current?.next == nil ?
+            print("|\(current?.data)|", terminator: " ") :
+            print("|\(current?.data)|", terminator: " ⇄ ")
+            current = current?.next
+        }
+        print("(tail)")
+    }
+}
+
+
+//참조 : https://jeonyeohun.tistory.com/324
