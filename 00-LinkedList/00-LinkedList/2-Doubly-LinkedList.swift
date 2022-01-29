@@ -1,12 +1,12 @@
 import Foundation
 
 //Equatable을 따르는 <T>자료형의 data를 가진 Node class
-class Node<T: Equatable> {
+class DLLNode<T: Equatable> {
     var data: T
-    var next: Node<T>?
-    var prev: Node<T>?
+    var next: DLLNode<T>?
+    var prev: DLLNode<T>?
     
-    init(data: T, next: Node<T>? = nil, prev: Node<T>? = nil) {
+    init(data: T, next: DLLNode<T>? = nil, prev: DLLNode<T>? = nil) {
         self.data = data
         self.next = next
         self.prev = prev
@@ -15,14 +15,14 @@ class Node<T: Equatable> {
 
 //Equatable을 따르는 <T>자료형의 data를 가진 Node를 연결하는 DLL class
 class DoublyLinkedList<T: Equatable> {
-    var head: Node<T>?
-    var tail: Node<T>?
+    var head: DLLNode<T>?
+    var tail: DLLNode<T>?
     
     func isEmpty() -> Bool {
         return (head == nil && tail == nil)
     }
     
-    func searchNodeFromHead(data: T) -> Node<T>? {
+    func searchNodeFromHead(data: T) -> DLLNode<T>? {
         if isEmpty() {
             print("Empty List")
             return nil
@@ -39,7 +39,7 @@ class DoublyLinkedList<T: Equatable> {
         return nil
     }
     
-    func searchNodeFromTail(data: T) -> Node<T>? {
+    func searchNodeFromTail(data: T) -> DLLNode<T>? {
         if isEmpty() {
             print("Empty List")
             return nil
@@ -56,7 +56,7 @@ class DoublyLinkedList<T: Equatable> {
         return nil
     }
     
-    func insertAtLast(newNode: Node<T>) {
+    func insertAtLast(newNode: DLLNode<T>) {
         if isEmpty() {
             head = newNode
             tail = newNode
@@ -70,7 +70,7 @@ class DoublyLinkedList<T: Equatable> {
         }
     }
     
-    func insertAtFirst(newNode: Node<T>) {
+    func insertAtFirst(newNode: DLLNode<T>) {
         if isEmpty() {
             head = newNode
             tail = newNode
@@ -84,7 +84,7 @@ class DoublyLinkedList<T: Equatable> {
         }
     }
     
-    func insertAfter(targetNodeData: T, newNode: Node<T>) {
+    func insertAfter(targetNodeData: T, newNode: DLLNode<T>) {
         guard let targetNode = searchNodeFromHead(data: targetNodeData) else { return }
         
         if targetNode.next == nil {
@@ -102,7 +102,7 @@ class DoublyLinkedList<T: Equatable> {
         
     }
     
-    func insertBefore(targetNodeData: T, newNode: Node<T>) {
+    func insertBefore(targetNodeData: T, newNode: DLLNode<T>) {
         guard let targetNode = searchNodeFromHead(data: targetNodeData) else { return }
         
         if targetNode.prev == nil {
@@ -176,7 +176,7 @@ class DoublyLinkedList<T: Equatable> {
         }
     }
     
-    func swapNode(leftNode: Node<T>, rightNode: Node<T>) { //인접한 두 노드 간에만 사용 가능
+    func swapNode(leftNode: DLLNode<T>, rightNode: DLLNode<T>) { //인접한 두 노드 간에만 사용 가능
         leftNode.next = rightNode.next
         rightNode.prev = rightNode.prev?.prev
         
@@ -206,4 +206,6 @@ class DoublyLinkedList<T: Equatable> {
 }
 
 
-//참조 : https://jeonyeohun.tistory.com/324
+//참조
+//https://jeonyeohun.tistory.com/324
+//https://babbab2.tistory.com/87
