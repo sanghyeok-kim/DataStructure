@@ -8,9 +8,5 @@
 import Foundation
 
 
-
-
-
-
 //참조
 //https://medium.com/@paddy111padam/circular-doubly-linked-list-with-swift-1f2fa183dcbb
