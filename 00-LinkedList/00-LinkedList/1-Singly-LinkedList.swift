@@ -19,7 +19,7 @@ class SinglyLinkedList<T: Equatable> {
         return head == nil
     }
     
-    func searchNode(targetNodeData: T) -> SLLNode<T>? { //searchPrevNode로 했으면 더 쓸모 있었을 듯
+    func searchNode(targetNodeData: T) -> SLLNode<T>? {
         if isEmpty() {
             print("Empty List")
             return nil
@@ -36,6 +36,10 @@ class SinglyLinkedList<T: Equatable> {
         
         print("Cannot Find Node")
         return nil
+    }
+    
+    func searchPrevNode(targetNodeData: T) -> SLLNode<T>? {
+        
     }
     
     func insertAtFirst(newNode: SLLNode<T>) {
