@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum ChildState {
+    case haveNoChild
+    case haveLeftChild
+    case haveLeftRightChild
+}
