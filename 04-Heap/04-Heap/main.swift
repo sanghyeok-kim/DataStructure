@@ -24,55 +24,16 @@ import Foundation
 
 
 /* --------------------------- MinHeap --------------------------- */
-//let elementA = MinElement(data: 1)
-//let elementB = MinElement(data: 2)
-//let elementC = MinElement(data: 3)
-//let elementD = MinElement(data: 4)
-//let elementE = MinElement(data: 5)
-//let elementF = MinElement(data: 6)
-//let elementG = MinElement(data: 7)
-//
-//
-//var myHeap = MinHeap(root: elementG)
-//myHeap.push(elementF)
-//myHeap.push(elementE)
-//myHeap.push(elementD)
-//myHeap.push(elementC)
-//myHeap.push(elementB)
-//myHeap.push(elementA)
-//print(myHeap)
-//print("")
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
+let elementA = Element(data: 1)
+let elementB = Element(data: 2)
+let elementC = Element(data: 3)
+let elementD = Element(data: 4)
+let elementE = Element(data: 5)
+let elementF = Element(data: 6)
+let elementG = Element(data: 7)
 
 
-/* --------------------------- MaxHeap --------------------------- */
-let elementA = MaxElement(data: 1)
-let elementB = MaxElement(data: 2)
-let elementC = MaxElement(data: 3)
-let elementD = MaxElement(data: 4)
-let elementE = MaxElement(data: 5)
-let elementF = MaxElement(data: 6)
-let elementG = MaxElement(data: 7)
-
-
-var myHeap = MaxHeap(root: elementG)
+var myHeap = MinHeap(root: elementG)
 myHeap.push(elementF)
 myHeap.push(elementE)
 myHeap.push(elementD)

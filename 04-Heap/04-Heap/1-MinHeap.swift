@@ -8,16 +8,22 @@
 
 import Foundation
 
-struct MinElement<T: Comparable> {
+enum ChildState {
+    case none
+    case left
+    case both
+}
+
+struct Element<T: Comparable> {
     let data: T
 }
 
 struct MinHeap<T: Comparable> {
-    var heap: [MinElement<T>] = []
+    var heap: [Element<T>] = []
     let rootIndex = 1
     
     init() {}
-    init(root: MinElement<T>) {
+    init(root: Element<T>) {
         heap.append(root) //0번 index 채우기용
         heap.append(root) //실제 Root Node 채우기
     }
@@ -56,7 +62,7 @@ struct MinHeap<T: Comparable> {
     }
     
     
-    mutating func push(_ newNode: MinElement<T>) {
+    mutating func push(_ newNode: Element<T>) {
         if heap.count == 0 {
             heap.append(newNode)
             heap.append(newNode)
@@ -82,11 +88,10 @@ struct MinHeap<T: Comparable> {
             guard let parentIndex = getParentIndex(of: insertIndex) else { return }
             heap.swapAt(insertIndex, parentIndex)
             insertIndex = parentIndex
-            //isMoveUp이 false일 때 까지 parent와 swap하며 올라감
         }
     }
     
-    mutating func pop() -> MinElement<T>? {
+    mutating func pop() -> Element<T>? {
         if heap.count <= 1 { return nil }
         
         let returnElement =  heap[rootIndex]
@@ -96,13 +101,13 @@ struct MinHeap<T: Comparable> {
         
         func checkChildState(of targetIndex: Int) -> ChildState {
             if getLeftChildIndex(of: targetIndex) == nil {
-                return .haveNoChild
+                return .none
             }
             else if getLeftChildIndex(of: targetIndex) != nil && getRightChildIndex(of: targetIndex) == nil {
-                return .haveLeftChild
+                return .left
             }
             else {
-                return .haveLeftRightChild
+                return .both
             }
         }
         
@@ -110,11 +115,11 @@ struct MinHeap<T: Comparable> {
             switch checkChildState(of: startIndex) {
                 
             //왼쪽 자식 노드가 없는 경우(== 자식 노드가 없는 경우 == leaf 노드인 경우) -> heapify 종료
-            case .haveNoChild:
+            case .none:
                 return
                 
             //왼쪽 자식 노드만 있는 경우
-            case .haveLeftChild:
+            case .left:
                 guard let leftIndex = getLeftChildIndex(of: startIndex) else { return }
                 
                 //왼쪽 자식이 나보다 크거나 같다면 -> heapify 종료
@@ -129,7 +134,7 @@ struct MinHeap<T: Comparable> {
                 }
                 
             //왼쪽 & 오른쪽 자식 노드 모두 있는 경우
-            case .haveLeftRightChild:
+            case .both:
                 guard let leftIndex = getLeftChildIndex(of: startIndex) else { return }
                 guard let rightIndex = getRightChildIndex(of: startIndex) else { return }
                 
@@ -161,7 +166,7 @@ struct MinHeap<T: Comparable> {
         return returnElement
     }
     
-    func peek() -> MinElement<T>? {
+    func peek() -> Element<T>? {
         if heap.count <= 1 {
             return nil
         }
