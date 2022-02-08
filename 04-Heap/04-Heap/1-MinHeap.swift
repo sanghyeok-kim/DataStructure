@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum ChildState {
-    case none
-    case left
-    case both
-}
-
 struct Element<T: Comparable> {
     let data: T
 }
@@ -89,6 +83,7 @@ struct MinHeap<T: Comparable> {
             heap.swapAt(insertIndex, parentIndex)
             insertIndex = parentIndex
         }
+        //isMoveUp이 false일 때 까지 parent와 swap하며 올라감
     }
     
     mutating func pop() -> Element<T>? {
@@ -101,13 +96,13 @@ struct MinHeap<T: Comparable> {
         
         func checkChildState(of targetIndex: Int) -> ChildState {
             if getLeftChildIndex(of: targetIndex) == nil {
-                return .none
+                return .haveNoChild
             }
             else if getLeftChildIndex(of: targetIndex) != nil && getRightChildIndex(of: targetIndex) == nil {
-                return .left
+                return .haveLeftChild
             }
             else {
-                return .both
+                return .haveLeftRightChild
             }
         }
         
@@ -115,11 +110,11 @@ struct MinHeap<T: Comparable> {
             switch checkChildState(of: startIndex) {
                 
             //왼쪽 자식 노드가 없는 경우(== 자식 노드가 없는 경우 == leaf 노드인 경우) -> heapify 종료
-            case .none:
+            case .haveNoChild:
                 return
                 
             //왼쪽 자식 노드만 있는 경우
-            case .left:
+            case .haveLeftChild:
                 guard let leftIndex = getLeftChildIndex(of: startIndex) else { return }
                 
                 //왼쪽 자식이 나보다 크거나 같다면 -> heapify 종료
@@ -134,7 +129,7 @@ struct MinHeap<T: Comparable> {
                 }
                 
             //왼쪽 & 오른쪽 자식 노드 모두 있는 경우
-            case .both:
+            case .haveLeftRightChild:
                 guard let leftIndex = getLeftChildIndex(of: startIndex) else { return }
                 guard let rightIndex = getRightChildIndex(of: startIndex) else { return }
                 
