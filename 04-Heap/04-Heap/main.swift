@@ -61,38 +61,42 @@ import Foundation
 //print(myHeap)
 
 /* --------------------------- MaxHeap --------------------------- */
-let elementA = MaxElement(data: 1)
-let elementB = MaxElement(data: 2)
-let elementC = MaxElement(data: 3)
-let elementD = MaxElement(data: 4)
-let elementE = MaxElement(data: 5)
-let elementF = MaxElement(data: 6)
-let elementG = MaxElement(data: 7)
+let elementA = MaxElement(data: 100)
+let elementB = MaxElement(data: 50)
+let elementC = MaxElement(data: 75)
+let elementD = MaxElement(data: 1)
+let elementE = MaxElement(data: 2)
+let elementF = MaxElement(data: 51)
 
-var myHeap = MaxHeap(root: elementG)
-myHeap.push(elementF)
-myHeap.push(elementE)
-myHeap.push(elementD)
-myHeap.push(elementC)
-myHeap.push(elementB)
+let dummyRootNode = MaxElement(data: 0)
+var myHeap = MaxHeap(dummyRootNode: dummyRootNode)
+
 myHeap.push(elementA)
+myHeap.push(elementB)
+myHeap.push(elementC)
+myHeap.push(elementD)
+myHeap.push(elementE)
+myHeap.push(elementF)
 print(myHeap)
 print("")
 
 myHeap.pop()
 print(myHeap)
-
-myHeap.pop()
-print(myHeap)
-
-myHeap.pop()
-print(myHeap)
-
-myHeap.pop()
-print(myHeap)
-
-myHeap.pop()
-print(myHeap)
-
-myHeap.pop()
-print(myHeap)
+//
+//myHeap.pop()
+//print(myHeap)
+//
+//myHeap.pop()
+//print(myHeap)
+//
+//myHeap.pop()
+//print(myHeap)
+//
+//myHeap.pop()
+//print(myHeap)
+//
+//myHeap.pop()
+//print(myHeap)
+//
+//myHeap.pop()
+//print(myHeap)
