@@ -1,4 +1,3 @@
-
 //
 //  1-MinHeap.swift
 //  04-Heap
@@ -8,16 +7,19 @@
 
 import Foundation
 
-struct Element<T: Comparable> {
+struct MinElement<T: Comparable> {
     let data: T
 }
 
 struct MinHeap<T: Comparable> {
-    var heap: [Element<T>] = []
+    var heap: [MinElement<T>] = []
     let rootIndex = 1
     
     init() {}
-    init(root: Element<T>) {
+    init(dummyRootNode: MinElement<T>) {
+        heap.append(dummyRootNode) //0번 index 채우기용
+    }
+    init(root: MinElement<T>) {
         heap.append(root) //0번 index 채우기용
         heap.append(root) //실제 Root Node 채우기
     }
@@ -56,7 +58,7 @@ struct MinHeap<T: Comparable> {
     }
     
     
-    mutating func push(_ newNode: Element<T>) {
+    mutating func push(_ newNode: MinElement<T>) {
         if heap.count == 0 {
             heap.append(newNode)
             heap.append(newNode)
@@ -86,7 +88,7 @@ struct MinHeap<T: Comparable> {
         //isMoveUp이 false일 때 까지 parent와 swap하며 올라감
     }
     
-    mutating func pop() -> Element<T>? {
+    mutating func pop() -> MinElement<T>? {
         if heap.count <= 1 { return nil }
         
         let returnElement =  heap[rootIndex]
@@ -161,7 +163,7 @@ struct MinHeap<T: Comparable> {
         return returnElement
     }
     
-    func peek() -> Element<T>? {
+    func peek() -> MinElement<T>? {
         if heap.count <= 1 {
             return nil
         }
