@@ -13,7 +13,7 @@ struct Element<T: Comparable> {
 
 struct Stack<T: Comparable> {
     var stack: [Element<T>] = []
-    let size: Int
+    let maxSize: Int
 
     
     func isEmpty() -> Bool {
@@ -21,7 +21,7 @@ struct Stack<T: Comparable> {
     }
     
     func isFull() -> Bool {
-        return self.stack.count == self.size
+        return self.stack.count == self.maxSize
     }
     
     mutating func push(element: Element<T>) {
@@ -33,12 +33,12 @@ struct Stack<T: Comparable> {
             return nil
         }
         
-        return stack.removeFirst()
+        return stack.popLast()
     }
     
     func showAll() {
         print("--- Stack Top ---")
-        for element in stack {
+        for element in stack.reversed() {
             print(element.data)
         }
         print("--- Stack Botton ---")
