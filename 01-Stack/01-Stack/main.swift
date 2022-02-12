@@ -8,7 +8,7 @@
 import Foundation
 
 /*-------------------- Stack Test --------------------*/
-var myStack = Stack<Int>(size: 3)
+var myStack = Stack<Int>(maxSize: 3)
 
 let elementA = Element(data: 1)
 let elementB = Element(data: 2)
@@ -29,3 +29,5 @@ myStack.showAll()
 print(myStack.pop())
 myStack.showAll()
 
+myStack.push(element: elementA)
+myStack.showAll()
