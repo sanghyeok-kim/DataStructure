@@ -38,8 +38,8 @@ struct Stack<T: Comparable> {
     
     func showAll() {
         print("--- Stack Top ---")
-        for element in stack.reversed() {
-            print(element.data)
+        for i in stride(from: stack.count - 1, through: 0, by: -1) {
+            print(stack[i].data)
         }
         print("--- Stack Botton ---")
     }
