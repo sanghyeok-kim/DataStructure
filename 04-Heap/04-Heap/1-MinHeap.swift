@@ -13,7 +13,10 @@ struct MinElement<T: Comparable> {
 
 struct MinHeap<T: Comparable> {
     var heap: [MinElement<T>] = []
-    let rootIndex = 1
+    let rootNodeIndex = 1
+    var lastNodeIndex: Int {
+        return heap.count - 1
+    }
     
     init() {}
     init(dummyRootNode: MinElement<T>) {
@@ -42,7 +45,7 @@ struct MinHeap<T: Comparable> {
         }
     }
     
-    func getParentIndex(of childIndex: Int) -> Int? { //(2...heap.count - 1)
+    func getParentIndex(of childIndex: Int) -> Int? { //(rootNodeIndex(1)...lastNodeIndex)
         if childIndex <= 1 || childIndex >= heap.count {
             return nil
         }
@@ -69,7 +72,8 @@ struct MinHeap<T: Comparable> {
         }
         
         
-        func isMoveUp(_ insertIndex: Int) -> Bool { //(insertIndex가 root가 아님 && insert의 data가 parent의 data 보다 큼) -> true
+        //(insertIndex가 root가 아님 && insert의 data가 parent의 data 보다 큼) -> true
+        func shouldMoveUp(_ insertIndex: Int) -> Bool {
             if insertIndex <= 1 {
                 return false
             }
@@ -79,21 +83,21 @@ struct MinHeap<T: Comparable> {
             }
         }
         
-        var insertIndex = heap.count - 1
-        while isMoveUp(insertIndex) {
+        var insertIndex = lastNodeIndex
+        while shouldMoveUp(insertIndex) {
             guard let parentIndex = getParentIndex(of: insertIndex) else { return }
             heap.swapAt(insertIndex, parentIndex)
             insertIndex = parentIndex
         }
-        //isMoveUp이 false일 때 까지 parent와 swap하며 올라감
+        //shouldMoveUp이 false일 때 까지 parent와 swap하며 올라감
     }
     
     mutating func pop() -> MinElement<T>? {
         if heap.count <= 1 { return nil }
         
-        let returnElement =  heap[rootIndex]
+        let returnElement =  heap[rootNodeIndex]
         
-        heap.swapAt(rootIndex, heap.count - 1)
+        heap.swapAt(rootNodeIndex, lastNodeIndex)
         heap.removeLast()
         
         func checkChildState(of targetIndex: Int) -> ChildState {
@@ -159,7 +163,7 @@ struct MinHeap<T: Comparable> {
             }
         }
         
-        heapifyDown(from: rootIndex)
+        heapifyDown(from: rootNodeIndex)
         return returnElement
     }
     
@@ -168,8 +172,7 @@ struct MinHeap<T: Comparable> {
             return nil
         }
         else {
-            let returnElement =  heap[rootIndex]
-            return returnElement
+            return heap[rootNodeIndex]
         }
     }
 }
