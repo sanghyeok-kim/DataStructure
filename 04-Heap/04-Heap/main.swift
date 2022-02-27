@@ -24,79 +24,101 @@ import Foundation
 
 
 /* --------------------------- MinHeap --------------------------- */
-//let elementA = Element(data: 1)
-//let elementB = Element(data: 2)
-//let elementC = Element(data: 3)
-//let elementD = Element(data: 4)
-//let elementE = Element(data: 5)
-//let elementF = Element(data: 6)
-//let elementG = Element(data: 7)
-//
-//var myHeap = MinHeap(root: elementG)
-//myHeap.push(elementF)
-//myHeap.push(elementE)
-//myHeap.push(elementD)
-//myHeap.push(elementC)
-//myHeap.push(elementB)
-//myHeap.push(elementA)
-//print(myHeap)
-//print("")
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
-//
-//myHeap.pop()
-//print(myHeap)
+let elementA = MinElement(data: 1)
+let elementB = MinElement(data: 2)
+let elementC = MinElement(data: 3)
+let elementD = MinElement(data: 4)
+let elementE = MinElement(data: 5)
+let elementF = MinElement(data: 6)
+let elementG = MinElement(data: 7)
 
-/* --------------------------- MaxHeap --------------------------- */
-let elementA = MaxElement(data: 100)
-let elementB = MaxElement(data: 50)
-let elementC = MaxElement(data: 75)
-let elementD = MaxElement(data: 1)
-let elementE = MaxElement(data: 2)
-let elementF = MaxElement(data: 51)
+var myMinHeap = MinHeap(dummyRootNode: MinElement(data: -1))
+myMinHeap.push(elementF)
+myMinHeap.push(elementE)
+myMinHeap.push(elementD)
+myMinHeap.push(elementC)
+myMinHeap.push(elementB)
+myMinHeap.push(elementA)
 
-let dummyRootNode = MaxElement(data: 0)
-var myHeap = MaxHeap(dummyRootNode: dummyRootNode)
-
-myHeap.push(elementA)
-myHeap.push(elementB)
-myHeap.push(elementC)
-myHeap.push(elementD)
-myHeap.push(elementE)
-myHeap.push(elementF)
-print(myHeap)
+print(myMinHeap)
 print("")
 
-myHeap.pop()
-print(myHeap)
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+/* --------------------------- MaxHeap --------------------------- */
+//let elementA = MaxElement(data: 100)
+//let elementB = MaxElement(data: 50)
+//let elementC = MaxElement(data: 75)
+//let elementD = MaxElement(data: 1)
+//let elementE = MaxElement(data: 2)
+//let elementF = MaxElement(data: 51)
 //
-//myHeap.pop()
-//print(myHeap)
+//var myMaxHeap = MaxHeap(dummyRootNode: MaxElement(data: -1))
 //
-//myHeap.pop()
-//print(myHeap)
+//myMaxHeap.push(elementF)
+//myMaxHeap.push(elementE)
+//myMaxHeap.push(elementD)
+//myMaxHeap.push(elementC)
+//myMaxHeap.push(elementB)
+//myMaxHeap.push(elementA)
 //
-//myHeap.pop()
-//print(myHeap)
+//print(myMaxHeap)
+//print("")
 //
-//myHeap.pop()
-//print(myHeap)
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
 //
-//myHeap.pop()
-//print(myHeap)
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
 //
-//myHeap.pop()
-//print(myHeap)
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
+//
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
+//
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
+//
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
+//
+//print(myMaxHeap.pop())
+//print(myMaxHeap)
+//print("")
