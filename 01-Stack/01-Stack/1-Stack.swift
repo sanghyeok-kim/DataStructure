@@ -7,12 +7,8 @@
 
 import Foundation
 
-struct Element<T: Comparable> {
-    var data: T
-}
-
-struct Stack<T: Comparable> {
-    var stack: [Element<T>] = []
+struct Stack<T> {
+    var stack: [T] = []
     let maxSize: Int
 
     
@@ -24,11 +20,11 @@ struct Stack<T: Comparable> {
         return self.stack.count == self.maxSize
     }
     
-    mutating func push(element: Element<T>) {
+    mutating func push(element: T) {
         self.stack.append(element)
     }
     
-    mutating func pop() -> Element<T>? {
+    mutating func pop() -> T? {
         if isEmpty() {
             return nil
         }
@@ -39,7 +35,7 @@ struct Stack<T: Comparable> {
     func showAll() {
         print("--- Stack Top ---")
         for i in stride(from: stack.count - 1, through: 0, by: -1) {
-            print(stack[i].data)
+            print(stack[i])
         }
         print("--- Stack Botton ---")
     }
