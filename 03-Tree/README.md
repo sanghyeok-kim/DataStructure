@@ -1,6 +1,6 @@
 # BFS
 ## 너비우선탐색(Breadth First Search)
-<img src="https://user-images.githubusercontent.com/57667738/155842439-66526d60-c4eb-4855-bc82-488450cc5b86.gif" width="50%">
+<img src="https://user-images.githubusercontent.com/57667738/155842440-f5d4259c-8a6e-412d-bd4f-ea8b424b5f3b.gif" width="50%">
 
 너비 우선탐색은 큐를 사용하며,<br>어떤 정점을 방문한 후 그 정점에 연결된 다른 정점들을 큐에 줄을 세워가면서 순차적으로 방문하는데,<br>방문하지 않은 정점이 없을 때(더이상 큐에 남아있는 정점이 없어질 때)까지<br>다른 모든 정점들에 대해서 똑같은 방식으로 탐색을 한다.
 
@@ -18,7 +18,7 @@
 
 # DFS
 ## 깊이우선탐색(Depth First Search)
-<img src="https://user-images.githubusercontent.com/57667738/155842440-f5d4259c-8a6e-412d-bd4f-ea8b424b5f3b.gif" width="50%">
+<img src="https://user-images.githubusercontent.com/57667738/155842439-66526d60-c4eb-4855-bc82-488450cc5b86.gif" width="50%">
 
 깊이 우선탐색은 스택이나 재귀를 사용하며,<br>어떤 정점에서 그 정점과 연결된 정점까지 계속해서 나아가다가<br>목표 정점을 찾지 못하면 다시 가장 가까운 정점으로 돌아와서 다른 경로를 택해서 다시 탐색을 한다.<br>여기서 다시 되돌아 오는 과정을 백트래킹(Backtracking)이라고 한다.
 
