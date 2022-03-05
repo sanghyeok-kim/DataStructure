@@ -19,7 +19,7 @@ class DoublyLinkedList<T: Equatable> {
     var tail: DLLNode<T>?
     
     func isEmpty() -> Bool {
-        return (head == nil && tail == nil)
+        return (head == nil) && (tail == nil)
     }
     
     func searchNodeFromHead(targetNodeData: T) -> DLLNode<T>? {
@@ -123,7 +123,7 @@ class DoublyLinkedList<T: Equatable> {
         if isEmpty() {
             print("Cannot Delete Node - Empty List")
         }
-        else if (head?.next == nil && tail?.next == nil ) { //Node가 1개
+        else if (head?.next == nil && tail?.prev == nil ) { //Node가 1개
             head = nil
             tail = nil
         }
@@ -131,8 +131,8 @@ class DoublyLinkedList<T: Equatable> {
             head = head?.next
     
             //새로운 head의 llink(기존 head) 끊기
-            head?.prev?.next = nil
-            head?.prev = nil
+            head?.prev = nil //(참조카운트가 0이되면서 사라짐)
+//            head?.prev?.next = nil //필요없음
         }
     }
     
@@ -140,7 +140,7 @@ class DoublyLinkedList<T: Equatable> {
         if isEmpty() {
             print("Cannot Delete Node - Empty List")
         }
-        else if (head?.next == nil && tail?.next == nil ) { //Node가 1개
+        else if (head?.next == nil && tail?.prev == nil ) { //Node가 1개
             head = nil
             tail = nil
         }
@@ -148,8 +148,8 @@ class DoublyLinkedList<T: Equatable> {
             tail = tail?.prev
         
             //새로운 tail의 rlink(기존 tail) 끊기
-            tail?.next?.prev = nil
-            tail?.next = nil
+            tail?.next = nil //(참조카운트가 0이되면서 사라짐)
+//            tail?.next?.prev = nil //필요없음
         }
     }
     
