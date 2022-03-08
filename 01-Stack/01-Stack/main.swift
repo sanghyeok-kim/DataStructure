@@ -8,26 +8,40 @@
 import Foundation
 
 /*-------------------- Stack Test --------------------*/
-var myStack = Stack<Int>(maxSize: 3)
+struct Element {
+    var data: Int
+}
 
-let elementA = Element(data: 1)
-let elementB = Element(data: 2)
-let elementC = Element(data: 3)
-
-myStack.push(element: elementA)
-myStack.push(element: elementB)
-myStack.push(element: elementC)
-
+var myStack = Stack<Element>(maxSize: 3)
+let myE = Element(data: 10)
+myStack.push(element: myE)
 myStack.showAll()
+print(myE.data > myE.data)
 
-print(myStack.pop())
-myStack.showAll()
-
-print(myStack.pop())
-myStack.showAll()
-
-print(myStack.pop())
-myStack.showAll()
-
-myStack.push(element: elementA)
-myStack.showAll()
+//let elementA = Element(data: 1)
+//let elementB = Element(data: 2)
+//let elementC = Element(data: 3)
+//
+//myStack.push(element: elementA)
+//myStack.push(element: elementB)
+//myStack.push(element: elementC)
+//
+//myStack.showAll()
+//
+//print(myStack.pop())
+//myStack.showAll()
+//
+//print(myStack.pop())
+//myStack.showAll()
+//
+//print(myStack.pop())
+//myStack.showAll()
+//
+//myStack.push(element: elementC)
+//myStack.showAll()
+//
+//myStack.push(element: elementB)
+//myStack.showAll()
+//
+//myStack.push(element: elementA)
+//myStack.showAll()
