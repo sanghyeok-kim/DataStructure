@@ -12,6 +12,8 @@
 
 
 ### Stack
+- Stack
+- Array-Stack
 
 <br>
 
@@ -19,6 +21,7 @@
 ### Queue
 - Queue
 - Linked-Queue
+- Array-Queue
 
 <br>
 
@@ -46,4 +49,5 @@
 ### Hashing
 
 <br>
+
 
