@@ -6,7 +6,6 @@
 - Singly-LinkedList 
 - Circular-LinkedList
 - Doubly-LinkedList
-- Circular-Doubly-LinkedList
 
 <br>
 
