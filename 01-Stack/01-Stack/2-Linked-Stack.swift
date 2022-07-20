@@ -1,5 +1,5 @@
 //
-//  2-Circular-Stack.swift
+//  2-Linked-Stack.swift
 //  01-Stack
 //
 //  Created by 김상혁 on 2022/02/11.
