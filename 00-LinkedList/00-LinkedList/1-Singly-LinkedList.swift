@@ -38,9 +38,9 @@ class SinglyLinkedList<T: Equatable> {
         return nil
     }
     
-//    func searchPrevNode(targetNodeData: T) -> SLLNode<T>? {
-//        
-//    }
+    func searchPrevNode(targetNodeData: T) -> SLLNode<T>? {
+        
+    }
     
     func insertAtFirst(newNode: SLLNode<T>) {
         if isEmpty() {

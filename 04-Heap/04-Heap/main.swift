@@ -23,148 +23,102 @@ import Foundation
     //3. heapify가 종료된 시점에 위치를 확정
 
 
-// --------------------------- MinHeap ---------------------------
-////var myMinHeap = MinHeap(dummyRootNode: -1)
-//var myMinHeap = MinHeap<Int>()
-//myMinHeap.push(3)
-//myMinHeap.push(9)
-//myMinHeap.push(4)
-//myMinHeap.push(2)
-//myMinHeap.push(6)
-//myMinHeap.push(5)
-//myMinHeap.push(7)
-//
-//
-//print(myMinHeap.heap)
-//print("")
-//
-//print(myMinHeap.pop()) //1
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //2
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //3
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //4
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //5
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //6
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //7
-//print(myMinHeap)
-//print("")
-//
-//print(myMinHeap.pop()) //nil
-//print(myMinHeap)
-//print("")
+/* --------------------------- MinHeap --------------------------- */
+let elementA = MinElement(data: 1)
+let elementB = MinElement(data: 2)
+let elementC = MinElement(data: 3)
+let elementD = MinElement(data: 4)
+let elementE = MinElement(data: 5)
+let elementF = MinElement(data: 6)
+let elementG = MinElement(data: 7)
 
-//--------------------------- MaxHeap ---------------------------
-//var myMaxHeap = MaxHeap<Int>()
-//myMaxHeap.push(100)
-//myMaxHeap.push(50)
-//myMaxHeap.push(75)
-//myMaxHeap.push(1)
-//myMaxHeap.push(2)
-//myMaxHeap.push(51)
+var myMinHeap = MinHeap(dummyRootNode: MinElement(data: -1))
+myMinHeap.push(elementF)
+myMinHeap.push(elementE)
+myMinHeap.push(elementD)
+myMinHeap.push(elementC)
+myMinHeap.push(elementB)
+myMinHeap.push(elementA)
+
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+print(myMinHeap.pop())
+print(myMinHeap)
+print("")
+
+/* --------------------------- MaxHeap --------------------------- */
+//let elementA = MaxElement(data: 100)
+//let elementB = MaxElement(data: 50)
+//let elementC = MaxElement(data: 75)
+//let elementD = MaxElement(data: 1)
+//let elementE = MaxElement(data: 2)
+//let elementF = MaxElement(data: 51)
 //
-//print(myMaxHeap.heap)
-//print("")
+//var myMaxHeap = MaxHeap(dummyRootNode: MaxElement(data: -1))
 //
-//print(myMaxHeap.pop()) //1
+//myMaxHeap.push(elementF)
+//myMaxHeap.push(elementE)
+//myMaxHeap.push(elementD)
+//myMaxHeap.push(elementC)
+//myMaxHeap.push(elementB)
+//myMaxHeap.push(elementA)
+//
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //2
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //3
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //4
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //5
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //6
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //7
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
 //
-//print(myMaxHeap.pop()) //nil
+//print(myMaxHeap.pop())
 //print(myMaxHeap)
 //print("")
-
-
-
-// --------------------------- DoublyHeap ---------------------------
-var doublyHeap = DoublyHeap<Int>()
-
-doublyHeap.push(3)
-//doublyHeap.heapifyUpToMaxHeap()
-doublyHeap.push(9)
-//doublyHeap.heapifyUpToMaxHeap()
-doublyHeap.push(4)
-//doublyHeap.heapifyUpToMaxHeap()
-doublyHeap.push(2)
-//doublyHeap.heapifyUpToMaxHeap()
-doublyHeap.push(6)
-//doublyHeap.heapifyUpToMaxHeap()
-doublyHeap.push(5)
-//doublyHeap.heapifyUpToMaxHeap()
-doublyHeap.push(7)
-//doublyHeap.heapifyUpToMaxHeap()
-
-//print(doublyHeap.heap)
-//doublyHeap.sortToMinHeap()
-//print(doublyHeap.heap)
-//print(doublyHeap.pop())
-
-//doublyHeap.sortToMinHeap()
-//print(doublyHeap.pop())
-
-
-doublyHeap.heapifyUpToMaxHeap()
-print(doublyHeap.pop())
-doublyHeap.sortToMaxHeap()
-
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
-//print(doublyHeap.pop())
-//doublyHeap.sortToMaxHeap()
-//
