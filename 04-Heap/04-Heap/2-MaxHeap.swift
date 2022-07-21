@@ -14,29 +14,17 @@ struct MaxHeap<T: Comparable> {
         return heap.count - 1
     }
     
-    init() {}
-    init(dummyRootNode: T) {
-        heap.append(dummyRootNode) //0번 index 채우기용
-    }
-    init(root: T) {
-        heap.append(root) //0번 index 채우기용
-        heap.append(root) //실제 Root Node 채우기
-    }
-    
-    //Get Index
     func getLeftChildIndex(of parentIndex: Int) -> Int? {
         if parentIndex < 1 || parentIndex * 2 >= heap.count {
             return nil
-        }
-        else {
+        } else {
             return parentIndex * 2
         }
     }
     func getRightChildIndex(of parentIndex: Int) -> Int? {
         if parentIndex < 1 || parentIndex * 2 + 1 >= heap.count {
             return nil
-        }
-        else {
+        } else {
             return parentIndex * 2 + 1
         }
     }
@@ -44,8 +32,7 @@ struct MaxHeap<T: Comparable> {
     func getParentIndex(of childIndex: Int) -> Int? { //(rootNodeIndex(1)...lastNodeIndex)
         if childIndex <= 1 || childIndex >= heap.count {
             return nil
-        }
-        else {
+        } else {
             return childIndex / 2
         }
     }
@@ -55,8 +42,7 @@ struct MaxHeap<T: Comparable> {
             heap.append(newNode)
             heap.append(newNode)
             return
-        }
-        else {
+        } else {
             heap.append(newNode)
         }
         

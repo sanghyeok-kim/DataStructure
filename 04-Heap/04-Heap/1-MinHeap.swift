@@ -8,11 +8,8 @@
 import Foundation
 
 struct MinHeap<T: Comparable> {
-    
     var heap: [T] = []
-    
     let rootNodeIndex = 1
-    
     var lastNodeIndex: Int {
         return heap.count - 1
     }
